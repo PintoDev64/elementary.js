@@ -8,7 +8,7 @@ interface GlobalRouting_ReducerProps {
 }
 interface GlobalRoutingContext {
     Path: string;
-    changeState: (data: GlobalContext_ReducerProps) => void
+    changeState: (data: GlobalRouting_ReducerProps) => void
 }
 
 //#region -------------| Local Routing Context

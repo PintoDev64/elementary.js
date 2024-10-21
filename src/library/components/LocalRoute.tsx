@@ -10,7 +10,7 @@ interface LocalRouteElementProps {
     component: ReactNode;
 }
 
-export function LocalRoute({ context, path, component }: LocalRouteElementProps): ReactNode {
+export default function LocalRoute({ context, path, component }: LocalRouteElementProps): ReactNode {
     const Context = useContext(LocalRoutingContext);
 
     if (Context === null) return null;

@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true, // Genera archivos .d.ts
+    "declarationMap": true, // Mapa de declaraciones para mejor depuración
+    "outDir": "./lib", // Salida de los archivos compilados
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "react-jsx",
+    "declarationDir": "./lib/types", // Directorio para los archivos .d.ts generados
+  },
+  "include": [
+    "src/library/**/*", // Incluir todos los archivos dentro de library
+    "src/index.d.ts" // Incluir el archivo de definición de tipos
+  ],
+  "exclude": [
+    "node_modules",
+    "src/pages",
+    "src/test",
+    "src/App.tsx",
+    "src/main.tsx"
+  ]
+}

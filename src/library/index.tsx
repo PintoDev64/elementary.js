@@ -1,9 +1,19 @@
-export { useNavigation } from './hooks/useNavigation';
-export { useLocation } from './hooks/useLocation';
+import useNavigation from './hooks/useNavigation';
+import useLocation from './hooks/useLocation';
 
 // Exportando componentes
-export { Link } from './components/Link';
-export { LocalRoute } from './components/LocalRoute';
-export { LocalRounting } from './components/LocalRounting';
-export { BrowserRoute } from './components/BrowserRoute';
-export { BrowserRouting } from './components/BrowserRouting';
+import Link from './components/Link';
+import LocalRoute from './components/LocalRoute';
+import LocalRounting from './components/LocalRounting';
+import BrowserRoute from './components/BrowserRoute';
+import BrowserRouting from './components/BrowserRouting';
+
+export {
+    Link,
+    LocalRoute,
+    LocalRounting,
+    BrowserRoute,
+    BrowserRouting,
+    useLocation,
+    useNavigation
+}

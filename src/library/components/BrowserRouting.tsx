@@ -8,7 +8,7 @@ interface RouterProps {
     children: ReactNode
 }
 
-export function BrowserRouting({ children }: RouterProps) {
+export default function BrowserRouting({ children }: RouterProps) {
     return (
         <BrowserRoutingProvider>
             <LocalRoutingProvider>

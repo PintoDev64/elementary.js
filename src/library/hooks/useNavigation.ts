@@ -3,7 +3,7 @@ import { useContext } from "react"
 // Context
 import { BrowserRoutingContext, LocalRoutingContext } from "../context"
 
-export function useNavigation() {
+export default function useNavigation() {
     const GlobalContext = useContext(BrowserRoutingContext);
     const LocalContext = useContext(LocalRoutingContext);
 
