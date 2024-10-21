@@ -1,4 +1,5 @@
-import Link from "../components/Link";
+import Link from "../library/components/Link";
+
 
 export default function About() {
     return (

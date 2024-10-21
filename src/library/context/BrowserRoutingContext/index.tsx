@@ -18,7 +18,7 @@ interface BrowserRoutingProviderProps {
 /**
  * 
  */
-export default function BrowserRoutingProvider({ children }: BrowserRoutingProviderProps) {
+export function BrowserRoutingProvider({ children }: BrowserRoutingProviderProps) {
     const INIT: GlobalRouting_InitProperties = {
         Path: getActualLocation()
     }

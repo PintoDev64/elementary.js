@@ -9,7 +9,7 @@ interface RouteElementProps {
     component: ReactNode;
 }
 
-export default function BrowserRoute({ path, component }: RouteElementProps): ReactNode {
+export function BrowserRoute({ path, component }: RouteElementProps): ReactNode {
     const Context = useContext(BrowserRoutingContext);
 
     if (Context === null) {

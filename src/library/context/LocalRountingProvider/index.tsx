@@ -13,7 +13,7 @@ interface LocalRoutingProviderProps {
 /**
  * 
  */
-export default function LocalRoutingProvider({ children }: LocalRoutingProviderProps) {
+export function LocalRoutingProvider({ children }: LocalRoutingProviderProps) {
 
     const INIT: LocalRoutingContext['state'] = []
 

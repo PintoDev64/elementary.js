@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { BrowserRoutingContext } from "../context"
 
-export default function useLocation() {
+export function useLocation() {
 
     const Context = useContext(BrowserRoutingContext)
 

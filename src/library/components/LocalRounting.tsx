@@ -7,7 +7,7 @@ interface LocalRouterProps {
     children: ReactNode;
 }
 
-export default function LocalRounting({ identifier, children }: LocalRouterProps) {
+export function LocalRounting({ identifier, children }: LocalRouterProps) {
     const Context = useContext(LocalRoutingContext);
 
     if (Context === null) throw new RangeError("El componente no esta dentor d eun contexto Local");

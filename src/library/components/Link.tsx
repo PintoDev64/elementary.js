@@ -1,7 +1,7 @@
 import { AnchorHTMLAttributes } from "react"
 
 // Hooks
-import useNavigation from "../hooks/useGlobalNavigation";
+import { useNavigation } from "../hooks/useNavigation";
 
 type LinkProps = {
     context?: string;
@@ -23,7 +23,7 @@ function handleSpecialEvents(event: EventDefinitions.MouseEvent<HTMLAnchorElemen
 /**
  * Crea un Anchor (a) que navega entre las diferentes paginas que hayas creado
  */
-export default function Link({ target, href, context, ...props }: LinkProps) {
+export function Link({ target, href, context, ...props }: LinkProps) {
     const { navigate } = useNavigation()
 
     function handleClick(event: EventDefinitions.MouseEvent<HTMLAnchorElement>) {
