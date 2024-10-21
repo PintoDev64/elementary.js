@@ -1,13 +1,25 @@
 import { useContext } from "react"
 
 // Context
-import { GlobalContext } from "../context"
+import { BrowserRoutingContext, LocalRoutingContext } from "../context"
 
-export default function useGlobalNavigation() {
-    const { changeState } = useContext(GlobalContext);
+export default function useNavigation() {
+    const GlobalContext = useContext(BrowserRoutingContext);
+    const LocalContext = useContext(LocalRoutingContext);
 
-    function navigate(path: string) {
-        changeState({ StateToModify: "Path", StateValue: path })
+    if (GlobalContext === null || LocalContext === null) {
+        throw new RangeError()
+    }
+
+    const { changeState: ChangeGlobal } = GlobalContext
+    const { changeState: ChangeLocal } = LocalContext
+
+    function navigate(path: string, local?: string) {
+        if (local === undefined) {
+            ChangeGlobal({ StateToModify: "Path", StateValue: path })
+        } else if (local?.length >= 1) {
+            ChangeLocal({ StateIdentifier: local, StateValue: path })
+        }
     }
 
     return {

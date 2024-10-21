@@ -1,24 +1,25 @@
-// Hooks
-import useLocation from "./hooks/useLocation";
-
 // Components
-import RouteElement from "./components/RouteElement";
-import GlobalRouter from "./components/Router";
-import About from "./pages/About";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import BrowserRoute from "./components/BrowserRoute";
+import Location from "./pages/Location";
+import LocalRounting from "./components/LocalRouting";
+import LocalRoute from "./components/LocalRoute";
+import LocalHome from "./pages/LocalHome";
+import LocalAbout from "./pages/LocalAbout";
 
 export default function App() {
 
-  const { location } = useLocation()
-
   return (
     <main>
-      {location}
       <br />
-      <GlobalRouter>
-        <RouteElement path="/" component={<Home />} />
-        <RouteElement path="/about" component={<About />} />
-      </GlobalRouter>
+      <Location />
+      <BrowserRoute path="/" component={<Home />} />
+      <BrowserRoute path="/about" component={<About />} />
+      <LocalRounting identifier="test">
+        <LocalRoute context="test" path="/" component={<LocalHome />}/>
+        <LocalRoute context="test" path="/about" component={<LocalAbout />}/>
+      </LocalRounting>
     </main>
   )
 }

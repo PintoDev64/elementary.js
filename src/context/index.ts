@@ -1,3 +1,4 @@
 import { createContext } from "react";
 
-export const GlobalContext = createContext<GlobalContext>(null!);
+export const BrowserRoutingContext = createContext<GlobalRoutingContext | null>(null);
+export const LocalRoutingContext = createContext<LocalRoutingContext | null>(null)

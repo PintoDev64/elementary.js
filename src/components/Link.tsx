@@ -1,15 +1,18 @@
 import { AnchorHTMLAttributes } from "react"
 
 // Hooks
-import useGlobalNavigation from "../hooks/useGlobalNavigation";
+import useNavigation from "../hooks/useGlobalNavigation";
 
 type LinkProps = {
-    target?: "_self" | "_blank" | "_parent" | "_top";
+    context?: string;
+    target?: AnchorHTMLAttributes<HTMLAnchorElement>['target']
     href: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>
 
-
-function handleSpecialEvents(event: Global_MouseEvent<HTMLAnchorElement>, target: LinkProps['target']): boolean {
+/**
+ * Valida si el evento de click del enlace tiene cambios/variaciones en su comportamiento
+ */
+function handleSpecialEvents(event: EventDefinitions.MouseEvent<HTMLAnchorElement>, target: LinkProps['target']): boolean {
     const isMainEvent = event.button === 0;
     const isModifiedEvent = event.metaKey || event.altKey || event.ctrlKey || event.shiftKey;
     const isManageableEvent = target === undefined || target === '_self';
@@ -20,14 +23,13 @@ function handleSpecialEvents(event: Global_MouseEvent<HTMLAnchorElement>, target
 /**
  * Crea un Anchor (a) que navega entre las diferentes paginas que hayas creado
  */
-export default function Link({ target, href, ...props }: LinkProps) {
+export default function Link({ target, href, context, ...props }: LinkProps) {
+    const { navigate } = useNavigation()
 
-    const { navigate } = useGlobalNavigation()
-
-    function handleClick(event: Global_MouseEvent<HTMLAnchorElement>) {
+    function handleClick(event: EventDefinitions.MouseEvent<HTMLAnchorElement>) {
         if (handleSpecialEvents(event, target)) {
             event.preventDefault();
-            navigate(href)
+            navigate(href, context)
         }
     }
 

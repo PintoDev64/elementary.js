@@ -1,15 +1,30 @@
-declare interface GlobalContext_ReducerProps {
+//#region -------------|Global/Browser Routing Context
+interface GlobalRouting_InitProperties {
+    Path: GlobalRoutingContext['Path']
+}
+interface GlobalRouting_ReducerProps {
     StateToModify: 'Path' | 'routerTree';
     StateValue: string
 }
-declare interface GlobalContext {
+interface GlobalRoutingContext {
     Path: string;
-    routerTree: null;
     changeState: (data: GlobalContext_ReducerProps) => void
 }
 
-declare type Global_MouseEvent<T> = React.MouseEvent<T, MouseEvent>
-declare interface childrenProp {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: any
+//#region -------------| Local Routing Context
+interface LocalRouting_ReducerProps {
+    StateIdentifier: string;
+    StateValue: string
+}
+interface LocalRoutingContext {
+    state: {
+        Name: string;
+        Path: string
+    }[] | [];
+    changeState: (data: LocalRouting_ReducerProps) => void
+}
+
+//#region -------------| Global |------------- //
+declare namespace EventDefinitions {
+    export type MouseEvent<T> = React.MouseEvent<T, MouseEvent>
 }
