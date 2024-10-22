@@ -1,6 +1,6 @@
 {
   "name": "elementaryjs",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Libreria de enrtutamiento ligera",
   "author": "PintoDev64",
   "type": "module",
@@ -24,7 +24,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "swc ./src/library --out-dir ./lib --copy-files",
+    "prepare": "tsc --project tsconfig.types.json",
     "test": ""
   },
   "peerDependencies": {
