@@ -14,7 +14,7 @@ export default function useNavigation() {
     const { changeState: ChangeGlobal } = GlobalContext
     const { changeState: ChangeLocal } = LocalContext
 
-    function navigate(path: string, local?: string) {
+    const navigate = (path: string, local?: string) => {
         if (local === undefined) {
             ChangeGlobal({ StateToModify: "Path", StateValue: path })
         } else if (local?.length >= 1) {
@@ -23,7 +23,6 @@ export default function useNavigation() {
     }
 
     return {
-        navigate,
-        location
+        navigate
     }
 }
